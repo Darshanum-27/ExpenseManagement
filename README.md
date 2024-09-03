@@ -11,19 +11,16 @@ Simple Web App to manage expense
 ## Tech Stack
 
 **Frontend:** Simple HTML, CSS
+**Backend:** ASP.NET Core, Entity Framework Package
 
 
-## Authors
-
-- [Darshan U M](https://github.com/Darshanum-27)
-
-# Installation
 Prerequisites
 Before you begin, ensure you have met the following requirements:
 
 .NET SDK (version X.X.X or later)
 Visual Studio or Visual Studio Code
-Any other dependencies your project might require (e.g., databases, third-party APIs)
+SQL Server (or any other database your project uses)
+Any other dependencies your project might require (e.g., Redis, third-party APIs)
 Installing
 Clone the repository:
 
@@ -40,6 +37,13 @@ Restore the dependencies:
 bash
 Copy code
 dotnet restore
+Apply any necessary database migrations:
+
+If your project uses Entity Framework Core, you can apply migrations using:
+
+bash
+Copy code
+dotnet ef database update
 Build the project:
 
 bash
@@ -59,7 +63,15 @@ Copy code
 dotnet run
 Access the application:
 
-If it’s a web application, open your browser and navigate to http://localhost:5000 (or the appropriate port).
+Open your browser and navigate to http://localhost:5000 (or the appropriate port).
+
+Running in Development Mode
+Start the application in development mode:
+
+bash
+Copy code
+dotnet watch run
+This command will start the application and restart it automatically whenever you make changes to the code.
 
 Additional Commands
 Publish the application:
@@ -72,20 +84,6 @@ Create a release build:
 bash
 Copy code
 dotnet build -c Release
-Configuration
-To configure the project, modify the appsettings.json file located in the project root:
+Using Docker (if applicable)
 
-json
-Copy code
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "YourConnectionStringHere"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  }
-}
+
